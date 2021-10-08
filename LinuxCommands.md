@@ -56,12 +56,15 @@ ln -s /path/to/file /path/to/symlink
 readlink -f $(which java)
 ```
 
-### Folder/File space
+### Folder Sizes
 [Relevant article](http://www.cyberciti.biz/faq/how-do-i-find-the-largest-filesdirectories-on-a-linuxunixbsd-filesystem/)
 
 ```
 cd /path/to/some/where
-$ du -hsx * | sort -rh | head -10
+du -h
+du -h --max-depth=1 | sort -hr
+du -ah directoryname/
+du -hsx * | sort -rh | head -10
 ```
 
 ### Drive space
@@ -121,6 +124,25 @@ mv keyname.pub .ssh/
 cat keyname.pub >> authorized_keys
 ```
 
+### Run as another user
+
+```
+sudo su - username
+```
+
+### Run combined commands as root
+
+```
+sudo -i
+then some commands
+```
+
+### Re-Load Profile After Edits
+
+```
+source ~/.bash_profile
+```
+
 ### Set Timezone (CentOS)
 
 ```
@@ -173,6 +195,13 @@ ps aux | sort -rnk 4
 ps aux | sort -rnk 3
 ```
 
+### Cron jobs
+[Relevant Article](http://www.cyberciti.biz/faq/linux-show-what-cron-jobs-are-setup/)
+
+```
+crontab -l
+```
+
 ## Applications
 
 ### MySQL
@@ -196,76 +225,33 @@ mysql -u root -p database_name < database_name.sql
 ```
 
 
+### Upgrade node.js
 
-
-
-
-
-
-
-
-
-
-
-
-*** Cron jobs
-http://www.cyberciti.biz/faq/linux-show-what-cron-jobs-are-setup/
-crontab -l
-
-
-*** BADSIG Error Fix
-sudo apt-get clean 
-cd /var/lib/apt 
-sudo mv lists lists.old 
-sudo mkdir -p lists/partial 
-sudo apt-get clean 
-sudo apt-get update
-
-*** Run as another user
-sudo su - username
-
-
-
-
-**** Re-Load Profile
-source ~/.bash_profile
-
-
-
-
-
-*** Install unzip
-
-*** Run combined commands as root
-sudo -i
-then some commands
-
-
-
-
-*** Upgrade node.js
+```
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
+```
 
-*** nginx tomcat permissions problem ****
+### nginx tomcat permissions problem
+
+```
 /usr/sbin/setsebool httpd_can_network_connect -P true 
-
-
-
-
+```
 
 ### Delete Jenkins Jobs
+
+```
 CRUMB=$(curl -s 'https://<username>:<keyhere>@<jenkinsurl>/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
+
 curl -X POST -H "$CRUMB" POST https://<username>:<keyhere>@<jenkinsurl>/job/Cloud-Speech-Android/[1-9]/doDelete
-
-*** Show Folder Size ***
-du -h
-du -h --max-depth=1 | sort -hr
-du -ah directoryname/
+```
 
 
-*** Android list installed packages *****
+
+### Android list installed packages
+
+```
 $ANDROID_HOME/tools/bin/sdkmanager --list  | sed -e '/Available Packages/q'
-
+```
 
