@@ -56,9 +56,24 @@ ln -s /path/to/file /path/to/symlink
 readlink -f $(which java)
 ```
 
+### Folder/File space
+[Relevant article](http://www.cyberciti.biz/faq/how-do-i-find-the-largest-filesdirectories-on-a-linuxunixbsd-filesystem/)
+
+```
+cd /path/to/some/where
+$ du -hsx * | sort -rh | head -10
+```
+
+### Drive space
+
+```
+df -h
+```
+
 ## Maintenance
 
 ### Ubuntu
+
 #### Remove a package
 
 ```
@@ -97,18 +112,13 @@ useradd <username>
 passwd <username>
 ```
 
-### Folder/File space
-[Relevant article](http://www.cyberciti.biz/faq/how-do-i-find-the-largest-filesdirectories-on-a-linuxunixbsd-filesystem/)
+### Add SSH Key
+
+scp key to home directory
 
 ```
-cd /path/to/some/where
-$ du -hsx * | sort -rh | head -10
-```
-
-### Drive space
-
-```
-df -h
+mv keyname.pub .ssh/
+cat keyname.pub >> authorized_keys
 ```
 
 ### Set Timezone (CentOS)
@@ -117,6 +127,12 @@ df -h
 cp /etc/localtime /root/old.timezone
 rm /etc/localtime
 ln -s /usr/share/zoneinfo/America/Detroit /etc/localtime
+```
+
+### Update Time
+
+```
+ntpdate pool.ntp.org
 ```
 
 ### Traffic on Port 80
@@ -185,10 +201,7 @@ mysql -u root -p database_name < database_name.sql
 
 
 
-***** Add SSh
-scp key to home
-mv davidtruxall.pub .ssh/davidtruxall.pub
-cat davidtruxall.pub >> authorized_keys
+
 
 
 
@@ -217,8 +230,7 @@ sudo su - username
 **** Re-Load Profile
 source ~/.bash_profile
 
-**** Update Time
-ntpdate pool.ntp.org
+
 
 
 
@@ -243,9 +255,9 @@ sudo n stable
 
 
 
-*** Delete Jenkins Jobs ****
-CRUMB=$(curl -s 'https://david.truxall:895376ac4c1335d80158f794d265e678@tool.digitaldxc.com/jenkins/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
-curl -X POST -H "$CRUMB" POST https://david.truxall:895376ac4c1335d80158f794d265e678@tool.digitaldxc.com/jenkins/job/Cloud-Speech-Android/[1-9]/doDelete
+### Delete Jenkins Jobs
+CRUMB=$(curl -s 'https://<username>:<keyhere>@<jenkinsurl>/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
+curl -X POST -H "$CRUMB" POST https://<username>:<keyhere>@<jenkinsurl>/job/Cloud-Speech-Android/[1-9]/doDelete
 
 *** Show Folder Size ***
 du -h
