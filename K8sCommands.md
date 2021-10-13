@@ -24,6 +24,13 @@ kubectl get deployment
 kubectl get service
 ```
 
+## Copy File from a Pod
+
+```
+kubectl cp <podname>:<filePathInPod> <localPathIncluding filename>
+```
+
+
 ## Current Context
 
 ```
