@@ -32,8 +32,7 @@ stat -c "%a %n" <directoryName>
 rm -rf letters/
 ```
 
-### Base64 encoding
-
+### Base64 encode a string
 ```
 echo -n <yourStringHere> | base64
 ```
@@ -114,6 +113,19 @@ sudo rpm -Uvh filename.rpm
 useradd <username>
 passwd <username>
 ```
+
+#### List Users
+
+```
+awk -F: '{ print $1}' /etc/passwd
+```
+
+#### Find A User ID
+
+```
+id -g <userName>
+```
+
 
 ### Add SSH Key
 
