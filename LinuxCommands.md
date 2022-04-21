@@ -37,6 +37,11 @@ rm -rf letters/
 echo -n <yourStringHere> | base64
 ```
 
+### Base64 decode a string
+```
+echo -n <yourEncodedStringHere> | base64 --decode
+```
+
 ### Get file permission info
 
 ```
