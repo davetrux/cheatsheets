@@ -20,7 +20,7 @@ docker logs <containerId>
 
 ## Shell Into A Container
 
-Note: the container must have a shell. Alpine images do not have one
+Note: the container must have a shell. Alpine images do not have one for instance.
 
 ```
 sudo docker exec -it <containerId> bash
