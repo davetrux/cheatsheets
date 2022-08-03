@@ -7,3 +7,5 @@ Command-line cheat sheets I use regularly
 [Docker commands](DockerCommands.md)
 
 [K8s commands](K8sCommands.md)
+
+[License](LICENSE)
