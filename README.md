@@ -1,6 +1,6 @@
 # Cheat Sheets
 
-Command-line cheat sheets I use regularly
+Command-line cheat sheets I use often
 
 [Linux commands](LinuxCommands.md)
 
