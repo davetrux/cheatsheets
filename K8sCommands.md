@@ -61,6 +61,13 @@ kubectl logs <podName> -c <initName>
 kubectl exec -ti <podName> -- bash
 ```
 
+## Port forward a pod
+
+```
+kubectl port-forward <podname> <localport>:<podport>
+```
+
+
 ## Helm
 
 ### Show Releases
@@ -80,5 +87,3 @@ helm delete <releasename> --purge
 ```
 helm create <name>
 ```
-
-
