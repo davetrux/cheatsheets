@@ -36,3 +36,13 @@ pip install -r requirements.txt
 ```
 pip freeze > requirements.txt
 ```
+
+### Remove all packages
+
+```
+pip freeze | xargs pip uninstall -ypip freeze | xargs pip uninstall -y
+```
+For Github packages:
+```
+pip freeze | cut -d "@" -f1 | xargs pip uninstall -y
+```
