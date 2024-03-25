@@ -12,6 +12,12 @@ python -m venv venv
 source venv/bin/activate
 ```
 
+## Deactivate Virtual Environment
+
+```
+deactivate
+```
+
 ## pip
 
 ### List installed packages
