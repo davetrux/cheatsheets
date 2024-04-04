@@ -8,4 +8,6 @@ Command-line cheat sheets I use often
 
 [K8s commands](K8sCommands.md)
 
+[Python commands](Python.md)
+
 [License](LICENSE)
