@@ -40,7 +40,7 @@ pip freeze > requirements.txt
 ### Remove all packages
 
 ```
-pip freeze | xargs pip uninstall -ypip freeze | xargs pip uninstall -y
+pip freeze | xargs pip uninstall -y
 ```
 For Github packages:
 ```
