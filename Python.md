@@ -46,3 +46,10 @@ For Github packages:
 ```
 pip freeze | cut -d "@" -f1 | xargs pip uninstall -y
 ```
+
+### Dependency Tree
+
+```
+pip install pipdeptree
+pipdeptree -fl
+```
