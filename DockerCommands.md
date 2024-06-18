@@ -51,6 +51,11 @@ docker cp <instance-name>:<path> <localpath>
 docker cp <localpath> <instance-name>:<path>
 ```
 
+## Copy files from Stopped Container
+```
+docker cp <instance-name>:<path> <localpath> -
+```
+
 ## Stop All Containers
 
 ```
@@ -81,4 +86,4 @@ sudo docker rm $(sudo docker ps -a -q -f 'name=<containername>')
 ```
 docker buildx prune -f
 ```
-```
+
